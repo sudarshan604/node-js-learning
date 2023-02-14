@@ -45,6 +45,9 @@ const Wrapper=styled.section`
 min-width:fit-content;
 
 .li{  
+     &:hover{
+      color:red;
+    }
     cursor: pointer;
     align-items:center;
     column-gap:.3rem;
