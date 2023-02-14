@@ -233,7 +233,7 @@ const Wrapper=styled.nav`
  scroll-behavior: smooth;
  column-gap:1rem;
  overflow:hidden;
- width:95%;
+ width:88%;
  padding-right:20rem;
  margin:0 auto;
  z-index:100;
@@ -253,7 +253,7 @@ const Wrapper=styled.nav`
 }
  .btn-right{
     top:50%;
-   right:1rem;
+   right:4rem;
 }
 .btn-left{
     top:50%;
