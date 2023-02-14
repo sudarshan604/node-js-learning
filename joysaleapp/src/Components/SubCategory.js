@@ -31,7 +31,7 @@ const {sub_category}=page
         let rect =location.width;
 
         container.current.style.width = `18rem`; 
-        container.current.style.left = `18rem`; 
+        container.current.style.left = `16rem`; 
       }
     },[location,container.current])
   
