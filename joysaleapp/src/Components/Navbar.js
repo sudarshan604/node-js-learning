@@ -15,7 +15,7 @@ function Navbar() {
     const [showArrow,setArrow]=useState(true)
    const [leftArrow,setLeftArrow]=useState(true)
    const scrollElement=useRef()
-  const {openSearch,openModelSign,openSignUp,closeCategory,handleScroll}=useGlobalAppContext()
+  const {openSearch,openModelSign,openSignUp,closeCategory,handleScroll,openSidebar}=useGlobalAppContext()
 
    
   
@@ -59,7 +59,7 @@ function Navbar() {
    <Wrapper>
      <header onMouseOver={closeCategory} className='flex'>
         <div className='logo'>
-         <HiMenuAlt3 className='iconb'/>
+         <HiMenuAlt3 className='iconb' onClick={openSidebar}/>
          <figure>
            <img src={"https://joysale.appkodes.in/frontend/web/media/logo/7470_3208_6644_app_logo.png"} alt="title name"/>
           </figure>
@@ -80,9 +80,9 @@ function Navbar() {
         <ul>
            <li className='hide' onClick={openModelSign}>Log in</li>
            <li className='hide' onClick={openSignUp}>Sign up</li>
-           <li>
-            <BsCamera/>
-            SELL
+           <li className='last-c'>
+            <BsCamera className='ca'/>
+           <p> SELL</p>
             </li>
         </ul>
      </header>
@@ -126,6 +126,7 @@ const Wrapper=styled.nav`
   display:flex;
   align-items:center;
  column-gap:1rem; 
+ cursor: pointer;
 }
  .iconb{
  font-size:4rem;
@@ -222,10 +223,12 @@ const Wrapper=styled.nav`
     display:flex;
     align-items:center;
     column-gap:1rem;
-
  }
   }
-
+.ca{
+  font-size:1.8rem;
+  min-width:1.4rem;
+}
 }
 .slider-section{
   display:flex;
@@ -272,7 +275,12 @@ footer{
   display:none !important;
 }
 li:last-child{
-  margin-left:6rem;
+  margin-left:3rem;
+  width:50%;
+
+  p{
+    font-size:1.2rem;
+  }
 }
 .min-search{
   font-size:1.8rem;

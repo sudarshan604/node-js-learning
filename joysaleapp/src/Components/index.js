@@ -6,6 +6,7 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import Top from "./Top";
 import SearchModal from "./SearchModal";
+import Sidebar from "./Sidebar";
 export {
      Navbar,
      Main,
@@ -14,5 +15,6 @@ export {
      SignIn,
      SignUp,
      Top,
-     SearchModal
+     SearchModal,
+     Sidebar
 }

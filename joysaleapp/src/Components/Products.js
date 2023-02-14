@@ -86,6 +86,12 @@ p{
    grid-template-columns:repeat(3,1fr);
   
 }
+}
+@media(max-width:31.25em){
+.product-list{
+   grid-template-columns:repeat(2,1fr);
+  
+}
 
 }
 `

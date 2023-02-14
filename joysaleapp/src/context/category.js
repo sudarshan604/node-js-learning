@@ -15,7 +15,7 @@ const [enter,setEnter]=useState()
 const [showId,setId]=useState(null)
 const [scroll,setScroll]=useState()
 const [search,setSearch]=useState(false)
-
+const [showSidebar,setSideBar]=useState(false)
 const setInfo=(loc)=>{
   setLocation(loc)
 }
@@ -63,7 +63,17 @@ const handleScroll=(value)=>{
   setScroll(value)
 }
 
-  return <AppContext.Provider value={{openSearch,closeSearch,search,handleScroll,scroll,handleId,showId,enter,setInfo,location,node,openModelSign,isOPen,closeSignMOdel,openSignUp,open,closeSignUp,openCategory,closeCategory}}>
+const openSidebar=()=>{
+  document.body.style.overflow = 'hidden';
+  setSideBar(true)
+}
+const closeSidebar=()=>{
+   setSideBar(false)
+   document.body.style.overflow= 'visible';
+
+}
+
+  return <AppContext.Provider value={{showSidebar,openSidebar,closeSidebar,openSearch,closeSearch,search,handleScroll,scroll,handleId,showId,enter,setInfo,location,node,openModelSign,isOPen,closeSignMOdel,openSignUp,open,closeSignUp,openCategory,closeCategory}}>
      {children}
   </AppContext.Provider>
 }

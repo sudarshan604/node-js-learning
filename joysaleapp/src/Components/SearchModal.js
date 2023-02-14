@@ -40,7 +40,7 @@ const Wrapper=styled.section`
  flex-direction:column;
  row-gap:1.5rem;
  transition:all .3s;
-  transform:translate(-50%,-150%);
+  transform:translate(-50%,-200%);
 
   background-color:#fff;
   z-index:99999999;

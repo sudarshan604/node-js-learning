@@ -1,4 +1,4 @@
-import { Navbar,Main,Footer,SignIn,SignUp,Top,SearchModal } from "./Components";
+import { Navbar,Main,Footer,SignIn,SignUp,Top,SearchModal,Sidebar } from "./Components";
 import styled from "styled-components";
 import { useGlobalAppContext } from "./context/category";
 import { useEffect, useState,useMemo } from "react";
@@ -18,7 +18,7 @@ function App() {
     };
   }, []);
 
-  const {search,isOPen,open,closeSignUp,closeSignMOdel,closeSearch}=useGlobalAppContext()
+  const {search,isOPen,open,closeSignUp,closeSignMOdel,closeSearch,showSidebar}=useGlobalAppContext()
 
   const isVisible = useMemo(() => scrollY >= 500, [scrollY]);
 
@@ -26,7 +26,7 @@ function App() {
 return (<>
       {isVisible && <Top />}
 
-{(isOPen | open|search) &&<Wrapper onClick={()=>{
+{(isOPen | open|search | showSidebar) &&<Wrapper onClick={()=>{
   closeSignUp()
   closeSignMOdel()
   closeSearch()
@@ -37,7 +37,10 @@ return (<>
 <SearchModal/>
 <SignIn/>
  <SignUp/>
- <Navbar/>
+ <Sidebar/>
+
+   <Navbar/>
+
      <Main/>
      <Footer/>
   </>
