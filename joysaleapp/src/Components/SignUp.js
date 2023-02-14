@@ -31,7 +31,7 @@ function SignUp() {
 export default SignUp
 
 const Wrapper=styled.article`
- position:absolute;
+ position:fixed;
  border-radius:5px;
  width:500px;
  height:auto;

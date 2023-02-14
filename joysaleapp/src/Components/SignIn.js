@@ -29,7 +29,7 @@ function SignIn() {
 export default SignIn
 
 const Wrapper=styled.article`
- position:absolute;
+ position:fixed;
  border-radius:5px;
  width:500px;
  height:auto;
@@ -90,7 +90,7 @@ span{
 footer{
   display:flex;
   flex-direction:column;
- align-items:center;
+   align-items:center;
   padding:1rem;
   padding-bottom:2.5rem;
     .btn{
