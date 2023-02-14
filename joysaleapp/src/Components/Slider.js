@@ -27,13 +27,15 @@ function Slider({id,img,category,title}) {
     return (
     <>
     <Wrapper ref={con}  onMouseEnter={(e)=>allCategory(e,id)}>
-
-       <div  className='flex li is'>
+  <div className='hide'>
+     <div  className='flex li is'>
        {img && <img src={img} alt="name"/>}
        <p>{category}</p>
       </div>
     
         {(enter && id==showId)&&<SubCategory page={page} loc={temLoc}/>}
+  </div>
+    
     </Wrapper>
     </>
   )
@@ -60,4 +62,12 @@ min-width:fit-content;
        font-weight:600;
 }
 }
+
+@media(max-width:62.5em){
+  .hide{
+  display:none !important;
+}
+
+}
+
 `

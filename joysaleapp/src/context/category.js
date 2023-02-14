@@ -14,6 +14,7 @@ const [open,setSignUp]=useState(false)
 const [enter,setEnter]=useState()
 const [showId,setId]=useState(null)
 const [scroll,setScroll]=useState()
+const [search,setSearch]=useState(false)
 
 const setInfo=(loc)=>{
   setLocation(loc)
@@ -44,16 +45,25 @@ const openCategory=()=>{
 const closeCategory=()=>{
  setEnter(false)
 }
+const openSearch=()=>{
+  document.body.style.overflow = 'hidden';
+
+  setSearch(true)
+}
+const closeSearch=()=>{
+  document.body.style.overflow= 'visible';
+
+   setSearch(false)
+}
 
 const handleId=(id)=>{
   setId(id)
 }
 const handleScroll=(value)=>{
-   console.log(value)
   setScroll(value)
 }
 
-  return <AppContext.Provider value={{handleScroll,scroll,handleId,showId,enter,setInfo,location,node,openModelSign,isOPen,closeSignMOdel,openSignUp,open,closeSignUp,openCategory,closeCategory}}>
+  return <AppContext.Provider value={{openSearch,closeSearch,search,handleScroll,scroll,handleId,showId,enter,setInfo,location,node,openModelSign,isOPen,closeSignMOdel,openSignUp,open,closeSignUp,openCategory,closeCategory}}>
      {children}
   </AppContext.Provider>
 }

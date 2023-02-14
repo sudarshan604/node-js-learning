@@ -18,13 +18,14 @@ const {sub_category}=page
    const [dataset,setDataSet]=useState(0)
    const {location,node,scroll}=useGlobalAppContext()
 
-
  
     useEffect(()=>{
       if(loc){
         let rect =location.width;
         container.current.style.width = `18rem`; 
-   
+        let left=location.left
+        left=left+40
+        container.current.style.left=`${left}px`
       }
 
       else{

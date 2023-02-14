@@ -9,12 +9,13 @@ import data from '../data/data';
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
+import {HiMenuAlt3} from 'react-icons/hi'
 import { useGlobalAppContext } from '../context/category';
 function Navbar() {
     const [showArrow,setArrow]=useState(true)
    const [leftArrow,setLeftArrow]=useState(true)
    const scrollElement=useRef()
-  const {openModelSign,openSignUp,closeCategory,handleScroll}=useGlobalAppContext()
+  const {openSearch,openModelSign,openSignUp,closeCategory,handleScroll}=useGlobalAppContext()
 
    
   
@@ -25,7 +26,7 @@ function Navbar() {
     function rightSlide(){
       const elem=scrollElement.current.getBoundingClientRect();
       const {current}=scrollElement
-      handleScroll(current.scrollLeft)
+      handleScroll(scrollElement.current.scrollLeft + current.clientWidth)
       if(scrollElement.current.scrollLeft + current.clientWidth >=current.scrollWidth){
         setArrow(!showArrow)
         return
@@ -57,10 +58,13 @@ function Navbar() {
     return (
    <Wrapper>
      <header onMouseOver={closeCategory} className='flex'>
+        <div className='logo'>
+         <HiMenuAlt3 className='iconb'/>
          <figure>
            <img src={"https://joysale.appkodes.in/frontend/web/media/logo/7470_3208_6644_app_logo.png"} alt="title name"/>
           </figure>
-         <div className='search-field'>
+        </div> 
+         <div className='search-field hide'>
             <div className='first-i'>
               <span>
                 <BiSearchAlt className='icon dark'/>
@@ -74,8 +78,8 @@ function Navbar() {
              </div>
           </div>
         <ul>
-           <li onClick={openModelSign}>Log in</li>
-           <li onClick={openSignUp}>Sign up</li>
+           <li className='hide' onClick={openModelSign}>Log in</li>
+           <li className='hide' onClick={openSignUp}>Sign up</li>
            <li>
             <BsCamera/>
             SELL
@@ -88,16 +92,21 @@ function Navbar() {
            return<Slider key={item.id} {...item}/>
         })}
  </section>
-         { showArrow &&<button onClick={rightSlide} className="btn btn-right">
+         { showArrow &&<button onClick={rightSlide} className="btn hide btn-right">
                      <AiOutlineRight className='icon'/>
                 </button>
            }
          
-       { leftArrow&&<button onClick={leftSlide}  className="btn btn-left">
+       { leftArrow&&<button onClick={leftSlide}  className="btn hide btn-left">
                      <AiOutlineLeft className='icon'/>
                 </button>}
         </footer>
+   <div className='min-search' onClick={openSearch}>
+     <span><BiSearchAlt/></span>
+    <p>Search products</p>
+</div>
  
+
     </Wrapper>
   )
 }
@@ -105,9 +114,23 @@ function Navbar() {
 export default Navbar
 
 const Wrapper=styled.nav`
- position:sticky;
+ position:fixed;
+ width:100vw;
  top:0;
  z-index:20;
+ .min-search{
+  display:none;
+  cursor: pointer;
+ }
+ .logo{
+  display:flex;
+  align-items:center;
+ column-gap:1rem; 
+}
+ .iconb{
+ font-size:4rem;
+ display:none; 
+}
  header{
      padding:1.2rem 2rem;
     background-color:#e40046;
@@ -115,6 +138,8 @@ const Wrapper=styled.nav`
     color:#fff;
     justify-content:space-between;
     align-items:center;
+    width:100vw;
+
   .search-field{
     display:flex;
     align-items:center;
@@ -150,14 +175,15 @@ const Wrapper=styled.nav`
        align-items:center;
        padding-left:.5rem;
       input{
+        width:80%;
         margin-left:.5rem;
-}
+      }
      .sp{
+      width:20%;
         color:#444;
         font-weight:700;
         align-self:center;
         align-content:stretch;
-        margin-left:auto;
         padding:1.3rem 1.8rem;
         background-color:rgba(0,0,0,.2);
  
@@ -236,6 +262,35 @@ const Wrapper=styled.nav`
 footer{
     background-color:#fff;
   position:relative;
+}
+
+@media(max-width:62.5em){
+.iconb{
+  display:block;
+}
+.hide{
+  display:none !important;
+}
+li:last-child{
+  margin-left:6rem;
+}
+.min-search{
+  font-size:1.8rem;
+  display:block;
+  display:flex;
+  column-gap:1rem;
+  align-items:center;
+  background-color:#fff;
+  width:100vw;
+   padding:1rem;
+ border:1px solid #fff;
+ opacity:.9999;
+ p,span{
+ opacity:.4; 
+}
+
+}
+
 }
 
 `

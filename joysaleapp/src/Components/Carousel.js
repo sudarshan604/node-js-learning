@@ -4,11 +4,17 @@ import {AiOutlineLeft,AiOutlineRight} from "react-icons/ai"
 import { useState,useEffect } from "react"
 import data from "../data/ScrollData"
 import { useGlobalAppContext } from "../context/category"
+import { useRef } from "react"
 const Carousel=()=>{
 
+  const imgBox=useRef()
+  const Box=useRef()
+  const container=useRef()
+  const Box1=useRef()
  const [people,setPeople]=useState(data)
  const [index,setIndex]=useState(0)
  const {closeCategory}=useGlobalAppContext()
+ const [resize,setResize]=useState()
  let isActive=0
  useEffect(() => {
   let lastIndex = people.length - 1;
@@ -20,19 +26,31 @@ const Carousel=()=>{
   }
 }, [index, people]);
 
+window.onresize = () => {
+  setResize(window.innerWidth)
+};
+
+
 useEffect(()=>{
+  let he=imgBox.current.offsetHeight
+  Box.current.style.height= he
+  container.current.style.height= `${he}px`
+   he=he-25
+  Box1.current.style.top= `${he}px`
   let interval=setInterval(()=>{
 
     setIndex(index+1)
   },3000)
 return ()=>clearInterval(interval)
-},[index])
+
+},[index,resize])
 
 
 
 
-  return<Wrapper  onMouseOver={closeCategory}>
-         <div className="carousal-content container flex">
+
+  return<Wrapper ref={container} onMouseOver={closeCategory}>
+         <div ref={Box} className="carousal-content container flex">
            {
                  people.map((item,itemIndex)=>{
                  const {id,img}=item
@@ -53,7 +71,7 @@ return ()=>clearInterval(interval)
                 }
       
           
-          return <section key={id} className={`${position} flex`}>
+          return <section ref={imgBox} key={id} className={`${position} flex img-section`}>
                     <figure className="hero-img-box">
                         <img src={img} alt="img"/>
                     </figure>
@@ -63,7 +81,7 @@ return ()=>clearInterval(interval)
                  })
 
            } 
-         <div className="rode">
+         <div className="rode" ref={Box1}>
                <div  onClick={() => setIndex(0)} className={`${isActive===0?"agreen red":"red hide"}`}></div>
                <div onClick={() => setIndex(1)}  className={`${isActive===1?"agreen red":"red hide"}`}></div>
                <div  onClick={() => setIndex(2)}   className={`${isActive===2?"agreen red":"red hide"}`}></div>
@@ -80,22 +98,21 @@ export default Carousel
 
 
   const Wrapper=styled.section`
-  height:30.2rem;
    overflow:hidden;
-      .carousal-content{
+   margin-top:14rem;
+   .carousal-content{
         position:relative;
-        height:30.2rem;
-        section{
+           section{
     transition:all .3s;
   display:grid;
  grid-template-columns:1fr 1.5fr;
-  }
+}
 }
 .rode{
  position:absolute;
- top:90%;
- z-index:1;
  right:50%;
+ z-index:1;
+
  transform:translateX(50%) ;
  display:flex;
  column-gap:.4rem;

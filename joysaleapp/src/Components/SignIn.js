@@ -35,7 +35,7 @@ const Wrapper=styled.article`
  height:auto;
  left:50%;
  transition:all .3s;
-  transform:translate(-50%,-120%);
+  transform:translate(-50%,-150%);
 
   background-color:#fff;
   z-index:99999999;

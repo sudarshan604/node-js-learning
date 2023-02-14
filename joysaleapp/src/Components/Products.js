@@ -81,5 +81,11 @@ p{
     font-size:1.6rem;
 }
 }
- 
+@media(max-width:62.5em){
+.product-list{
+   grid-template-columns:repeat(3,1fr);
+  
+}
+
+}
 `

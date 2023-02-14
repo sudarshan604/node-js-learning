@@ -50,7 +50,7 @@ padding-bottom:7rem;
   color:#fff;
   border:none;
   border-radius:5px;
-  width:17rem;
+  width:100%;
 }
 .para{
     font-size:1.4rem;
@@ -89,6 +89,7 @@ section{
     display:flex;
     justify-content:space-between;
   font-size:1.4rem;
+  column-gap:1rem;
   color:#222;
  border-bottom:1px solid rgba(128,128,128,.5);
  padding-bottom:1.5rem;
@@ -108,12 +109,12 @@ section{
   }
 }
 .second-aside{
+  width:55%;
     p{
-  max-width:80%;
   text-align:center;
     }
 }
 .third-aside{
-    width:10%;
+    width:20%;
 }
 `
