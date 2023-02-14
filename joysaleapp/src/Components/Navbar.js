@@ -183,7 +183,7 @@ const Wrapper=styled.nav`
      justify-content:space-between;
      align-items:center;
      row-gap:2rem;
-     width:15%;
+     width:20%;
  li{
   list-style:none;;
   font-weight:700;
