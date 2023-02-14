@@ -196,7 +196,7 @@ export default[
    },
    {
     id:4,
-    img:"images/jobs.png",
+    img:"images/services.png",
     category:"jobs",
     
   },
@@ -213,7 +213,7 @@ export default[
    },
    {
     id:6,
-    img:"images/pets.png",
+    img:"images/plug.png",
     category:"pets",
    
    },
