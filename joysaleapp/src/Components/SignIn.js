@@ -31,7 +31,7 @@ export default SignIn
 const Wrapper=styled.article`
  position:fixed;
  border-radius:5px;
- width:500px;
+ width:50rem;
  height:auto;
  left:50%;
  transition:all .3s;
