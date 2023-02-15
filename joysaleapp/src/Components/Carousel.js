@@ -45,6 +45,15 @@ return ()=>clearInterval(interval)
 
 },[index,resize])
 
+window.onload = function() {
+  let he=imgBox.current.offsetHeight
+  Box.current.style.height= he
+  container.current.style.height= `${he}px`
+   he=he-25
+  Box1.current.style.top= `${he}px`
+
+};
+
 
 
 
