@@ -38,7 +38,7 @@ const Wrapper=styled.article`
   transform:translate(-50%,-200%);
 
   background-color:#fff;
-  z-index:99999999;
+  z-index:9999999999999999999999;
   box-shadow: 0px 0px 10px rgba(0,0,0,.5);
 
   h2{
