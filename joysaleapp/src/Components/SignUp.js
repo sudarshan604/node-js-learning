@@ -4,7 +4,7 @@ import { useGlobalAppContext } from '../context/category'
 import {RxCross1} from "react-icons/rx"
 function SignUp() {
 
-    const {open,closeSignUp}=useGlobalAppContext()
+    const {open,closeSignUp,openModelSign}=useGlobalAppContext()
 
   return (<Wrapper className={`${open===true?"active":null} resp `}>
           <h2>SignuP3<span onClick={closeSignUp} ><RxCross1/></span> </h2>
@@ -23,7 +23,10 @@ function SignUp() {
           <img src="images/google.png"/>
     </footer> 
     <hr/>
-   <p className='fp'>Have an account?<span>Login</span></p>
+   <p className='fp'>Have an account?<span onClick={()=>{
+     closeSignUp()
+     openModelSign()
+   }}>Login</span></p>
   </Wrapper>
   )
 }
@@ -122,6 +125,7 @@ footer{
      text-align:center;
  span{
     color:#e40046;
+    cursor: pointer;
  }
 }
 

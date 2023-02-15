@@ -39,7 +39,7 @@ const handleCategory=(e,value)=>{
           <h3>{category}</h3>
        </div>
       <figure>
-         <AiOutlineDown className='icon'/>
+         <AiOutlineDown className={`icon`}/>
       </figure>
     </div>
       {(showVisible && id===showId)&&<SideSubCategory {...page}/>}
@@ -56,6 +56,7 @@ padding-bottom:1rem;
 transition:all .3s;
 .icon{
     font-size:1.8rem;
+
 }
 .cla-wra{
 display:flex;
