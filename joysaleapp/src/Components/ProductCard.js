@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 
-function ProductCard({img,name,price,address}) {
-  return (<Wrapper>
+function ProductCard({img,name,price,address,label,labeld}) {
+ 
+    const beforeStyles = label ? {
+      content: `'${label}'`,
+      backgroundColor: '#ff003c'
+    }:labeld?{
+      content: `'${labeld}'`,
+      backgroundColor: '#2bc248'} 
+      :{};
+
+return (<Wrapper style={{ '--before-content': beforeStyles.content, '--before-bg-color': beforeStyles.backgroundColor }}>
         <figure>
                <img src={img} alt={name}/>
         </figure>
@@ -25,6 +34,19 @@ const Wrapper=styled.article`
  background-color:#fff;
   border-radius:6px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 33px 0px;
+  position:relative;
+  &:after {
+    position: absolute;
+    top: .4rem;
+    right: 1rem;
+    color:#fff;
+    height: 2rem;
+    padding:.3rem .6rem;
+    width: 5rem;
+    content: var(--before-content);
+  background-color: var(--before-bg-color);
+  }
+
 footer{
     padding: 1rem 1rem;
   font-size:1rem;

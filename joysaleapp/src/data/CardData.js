@@ -4,7 +4,9 @@ export default[
     img:"images/boy.jpeg",
     price:"30 $",
     name:"Highlander Men Solid Casual Mandarin Shirt",
-    address:"Xiamen, Fujian, China"
+    address:"Xiamen, Fujian, China",
+    label:"URGENT",
+
   },
   {
     id:1,
@@ -19,14 +21,17 @@ export default[
     img:"images/dog.jpg",
     price:"60 $",
     name:"Highlander Men Solid Casual Mandarin Shirt",
-    address:"Xiamen, Fujian, China"
+    address:"Xiamen, Fujian, China",
+    labeld:"UN d"
+
   },
   {
     id:3,
     img:"images/dog.jpg",
     price:"70 $",
     name:"Highlander Men Solid Casual Mandarin Shirt",
-    address:"Xiamen, Fujian, China"
+    address:"Xiamen, Fujian, China",
+    label:"URGENT",
   },
   {
     id:4,
@@ -55,7 +60,8 @@ export default[
     img:"images/dog.jpg",
     price:"70 $",
     name:"Highlander Men Solid Casual Mandarin Shirt",
-    address:"Xiamen, Fujian, China"
+    address:"Xiamen, Fujian, China",
+   labeld:"UN d"
   },
   {
     id:8,
@@ -77,7 +83,8 @@ export default[
     img:"images/dog.jpg",
     price:"60 $",
     name:"Highlander Men Solid Casual Mandarin Shirt",
-    address:"Xiamen, Fujian, China"
+    address:"Xiamen, Fujian, China",
+    label:"URGENT",
   },
   {
     id:11,
@@ -91,6 +98,9 @@ export default[
     img:"images/boy.jpeg",
     price:"30 $",
     name:"Highlander Men Solid Casual Mandarin Shirt",
-    address:"Xiamen, Fujian, China"
+    address:"Xiamen, Fujian, China",
+    labeld:"UN d"
+
+   
   }
 ]

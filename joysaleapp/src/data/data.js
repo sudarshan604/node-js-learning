@@ -6,6 +6,7 @@ export default[
    
 },
     {
+
     id:0,
     img:"images/home.png",
     category:"Property",
@@ -207,7 +208,7 @@ export default[
     sub_category:[
       {
         id:401,
-        category:"hello"
+        category:"Hiking"
       }
     ]
    },
@@ -215,14 +216,95 @@ export default[
     id:6,
     img:"images/plug.png",
     category:"pets",
-   
-   },
+    sub_category:[
+      {
+        id:6034,
+        category:"Buy pets",
+        sub_category:[
+          {
+            id:60340,
+            category:"cats"
+          },
+          {
+            id:30341,
+            category:"dogs"
+          }
+      ]
+      },
+      {
+        id:6035,
+        category:"Pets Asseroies",
+        sub_category:[
+          {
+            id:60351,
+            category:"Foods"
+          },
+          {
+            id:60352,
+            category:"Medicine"
+          },
+          ]
+      },
+      {
+        id:6036,
+        category:"Pets Supplies",
+        sub_category:[
+          {
+            id:60361,
+            category:"crates"
+          },
+        
+          ]
+      }   
+  ]
+ },
+  
    {
     id:7,
     img:"images/plug.png",
-    category:"plug",
-    
-   },
+    category:"Electronic & application",
+    sub_category:[
+      {
+        id:7034,
+        category:"Mobiles",
+        sub_category:[
+          {
+            id:70340,
+            category:"Smart phones"
+          },
+          {
+            id:70341,
+            category:"Normal"
+          }
+      ]
+      },
+      {
+        id:7035,
+        category:"Laptops",
+        sub_category:[
+          {
+            id:70351,
+            category:"Window"
+          },
+          {
+            id:70352,
+            category:"Mac"
+          },
+          ]
+      },
+      {
+        id:7036,
+        category:"Tablets",
+        sub_category:[
+          {
+            id:70361,
+            category:"Android"
+          },
+        
+          ]
+      }   
+  ]
+ }, 
    {
     id:8,
     img:"images/services.png",

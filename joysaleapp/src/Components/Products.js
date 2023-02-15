@@ -4,12 +4,13 @@ import ProductCard from './ProductCard'
 import Data from '../data/CardData'
 import {AiOutlinePlusCircle} from 'react-icons/ai'
 import { useState,useEffect } from 'react'
+import Loading from './Loading'
 
 function Products() {
  const [data,setData]=useState([])
  const [allData,setAllData]=useState(Data)
  const [moreProduct,setMoreProduct]=useState(false)
- 
+ const [isLoading,setLoading]=useState(false)
  useEffect(() =>{
        let newData=allData.slice(0,8) 
         setData(newData)
@@ -17,16 +18,23 @@ function Products() {
 },[])
 
 const handleProduct=()=>{
+   setLoading(true)
+   const timeout = setTimeout(() => {
+      setLoading(false);
+      let length=allData.length
+      let newData=allData.slice(9,12) 
+     setMoreProduct(true)
+    setData(data=>[...data,...newData])
+ 
+   }, 2000);
 
-     let length=allData.length
-     let newData=allData.slice(9,12) 
-    setMoreProduct(true)
-   setData(data=>[...data,...newData])
 
+  
     
 
 }
- 
+
+
 
  return (
     <Wrapper>
@@ -39,12 +47,13 @@ const handleProduct=()=>{
             }
     </div>
   <div className='product-footer'>
-    {!moreProduct &&<><AiOutlinePlusCircle className='icon' onClick={handleProduct}/>
+    {!isLoading&&<><AiOutlinePlusCircle className='icon' onClick={handleProduct}/>
        <p>More ads</p>
-    </> 
-    }
-       </div>
-
+      </>
+     }
+        {isLoading && <Loading/>}
+   </div>
+ 
     </Wrapper>
   )
 }
@@ -94,4 +103,12 @@ p{
 }
 
 }
+@media(max-width:44em){
+   .product-list{
+   grid-template-columns:repeat(1,1fr);
+  
+}
+
+}
+
 `

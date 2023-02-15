@@ -23,15 +23,27 @@ function Footer() {
       </section>
 
      <div>
-        <div>
-         <ul className='list'>
+        <div className='final'>
+         <div>
+          <ul className='list'>
               <li>Terms and Policy</li>
               <li>Safety Tips</li>
               <li>Reach</li>
               <li>User Help</li>
          </ul>
           <p className='para'> &#169; Copyright 2023 Appkodes.com Limited. All rights reserved</p>
-          </div>
+         </div>
+         
+          <div className='select-div'>
+            <span>Language:</span>
+          <select>
+               <option>English</option>
+                <option>Japnese</option>
+                <option>Korean</option>
+          </select>
+          </div>       
+      </div>
+
   </div> 
   </Wrapper>  )
 }
@@ -43,6 +55,19 @@ width:90%;
 margin:0 auto;
  margin-top:15rem;
 padding-bottom:7rem;
+.final{
+  display:flex;
+  justify-content:space-between;
+ font-size:1.4rem;
+  select{
+  border:none;
+  option {
+  background-color:rgba(0,0,0,.5);
+  color: #fff;
+}
+ 
+}
+}
 
 .btn{
   padding:1rem 1.5rem;
@@ -86,13 +111,13 @@ padding-bottom:7rem;
   }
 }
 section{
-    display:flex;
-    justify-content:space-between;
+    display:grid;
+    grid-template-columns:20% 60% 20%;
   font-size:1.4rem;
-  column-gap:1rem;
   color:#222;
+  row-gap:1.3rem;
  border-bottom:1px solid rgba(128,128,128,.5);
- padding-bottom:1.5rem;
+ padding-bottom:3.5rem;
  margin-bottom:2.8rem;
 }
 
@@ -102,19 +127,50 @@ section{
     }
 }
 .first-aside{
-    width:25%;
+    width:100%;
   img{
     display:inline-block;
     margin-right:1rem;
   }
 }
 .second-aside{
-  width:55%;
+  width:90%;
     p{
   text-align:center;
     }
 }
 .third-aside{
-    width:20%;
+    width:100%;
+    max-width:20rem;
 }
+
+@media(max-width:44em){
+ section{
+ grid-template-columns:1fr 2fr;
+  font-size:1.6rem; 
+  .first-aside{
+    width:100%;
+  }
+ .second-aside{
+  width:100%;
+ }
+ .third-aside{
+  width:100%;
+  max-width:20rem;
+ }
+
+}
+.final{
+  flex-direction:column;
+  row-gap:4rem;
+}
+}
+@media(max-width:44em){
+ section{
+   grid-template-columns:1fr;
+   row-gap:4rem;
+ }
+
+}
+
 `
