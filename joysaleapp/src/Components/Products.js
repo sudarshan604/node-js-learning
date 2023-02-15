@@ -9,7 +9,7 @@ import Loading from './Loading'
 function Products() {
  const [data,setData]=useState([])
  const [allData,setAllData]=useState(Data)
- const [moreProduct,setMoreProduct]=useState(false)
+ const [moreProduct,setMoreProduct]=useState(true)
  const [isLoading,setLoading]=useState(false)
  useEffect(() =>{
        let newData=allData.slice(0,8) 
@@ -22,8 +22,8 @@ const handleProduct=()=>{
    const timeout = setTimeout(() => {
       setLoading(false);
       let length=allData.length
-      let newData=allData.slice(9,12) 
-     setMoreProduct(true)
+      let newData=allData.slice(9,) 
+     setMoreProduct(false)
     setData(data=>[...data,...newData])
  
    }, 2000);
@@ -47,13 +47,13 @@ const handleProduct=()=>{
             }
     </div>
   <div className='product-footer'>
-    {!isLoading&&<><AiOutlinePlusCircle className='icon' onClick={handleProduct}/>
+    {(!isLoading && moreProduct)&&<><AiOutlinePlusCircle className='icon' onClick={handleProduct}/>
        <p>More ads</p>
-      </>
+     </> 
      }
         {isLoading && <Loading/>}
-   </div>
- 
+       </div>
+
     </Wrapper>
   )
 }
