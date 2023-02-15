@@ -13,7 +13,7 @@ import {HiMenuAlt3} from 'react-icons/hi'
 import { useGlobalAppContext } from '../context/category';
 function Navbar() {
     const [showArrow,setArrow]=useState(true)
-   const [leftArrow,setLeftArrow]=useState(true)
+   const [leftArrow,setLeftArrow]=useState(false)
    const scrollElement=useRef()
   const {openSearch,openModelSign,openSignUp,closeCategory,handleScroll,openSidebar}=useGlobalAppContext()
 
@@ -47,12 +47,12 @@ function Navbar() {
          }
      if(current.scrollLeft<=0)
      {
+
          setLeftArrow(!leftArrow)
           return
         }  
    
        current.scrollLeft-=250;  
-        console.log(current.scrollLeft)
     }
 
     return (

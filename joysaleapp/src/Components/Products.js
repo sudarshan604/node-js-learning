@@ -103,12 +103,12 @@ p{
 }
 
 }
-@media(max-width:44em){
+/* @media(max-width:44em){
    .product-list{
    grid-template-columns:repeat(1,1fr);
   
-}
+} */
 
-}
+/* } */
 
 `
