@@ -191,4 +191,31 @@ export default Carousel
     }
    }
 
+   @media(max-width:44em){
+  .carousal-content{
+    min-height:20rem;
+  }
+.img-section{
+  min-height:20rem;
+ img{
+  height:100%;
+  object-fit:fit-content; 
+}
+}
+}
+@media(max-width:31.25em){
+  .carousal-content{
+    min-height:15vh;
+  }
+.img-section{
+  min-height:15vh;
+ img{
+  height:100%;
+  object-fit:fit-content; 
+}
+}
+}
+
+
+
 `
