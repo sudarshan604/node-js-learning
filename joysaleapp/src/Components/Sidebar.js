@@ -39,7 +39,7 @@ function Sidebar() {
 export default Sidebar
 
 const Wrapper=styled.aside`
- z-index:493949349349439349439;
+ z-index:4939493;
  position:fixed;
  top:0;
  width:30rem;

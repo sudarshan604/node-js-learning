@@ -57,5 +57,5 @@ const Wrapper=styled.div`
     width: 100%;
     height: 100%;
    opacity:.3;
- z-index:9999999;
+ z-index:9999;
 `

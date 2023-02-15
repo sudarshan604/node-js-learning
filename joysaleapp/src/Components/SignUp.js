@@ -6,7 +6,7 @@ function SignUp() {
 
     const {open,closeSignUp}=useGlobalAppContext()
 
-  return (<Wrapper className={`${open===true?"active":null}`}>
+  return (<Wrapper className={`${open===true?"active":null} resp `}>
           <h2>SignuP3<span onClick={closeSignUp} ><RxCross1/></span> </h2>
          
          <hr/>
@@ -33,7 +33,7 @@ export default SignUp
 const Wrapper=styled.article`
  position:fixed;
  border-radius:5px;
- width:500px;
+ width:50rem;
  height:auto;
  left:50%;
  transition:all .3s;
@@ -124,4 +124,6 @@ footer{
     color:#e40046;
  }
 }
+
+
 `
