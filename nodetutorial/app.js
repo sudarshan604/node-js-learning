@@ -1,17 +1,24 @@
-const {readFileSync,writeFileSync}=require('fs');
-console.log('start')
+const {createReadStream}=require('fs')
 
-const first=readFileSync('./content/first.txt','utf-8')
-const second=readFileSync('./content/second.txt','utf-8')
+const stream=createReadStream('./content/big.txt',{
+     highWaterMark:90000,
+     encoding:'utf-8'
+});
 
-writeFileSync('./content/result.txt',`here is result:${first} ${second}`,{flag:'a'}) //flag a means append this in the file
+//default 64kb
+//last buffer -remainder
+//highwatermark -control size
+//const stream=createReadStream('./content/big.txt',{highWaterMark:90000});
+//const stream=createReadStream('./content/big.txt',{encoding:'utf-8});
 
-console.log('done with this task')
-console.log('starting the next one')
 
 
-
-
+stream.on('data',(result)=>{
+    console.log(result)
+})
+stream.on('error',(error)=>{
+    console.log(error )
+}) 
 
 
 

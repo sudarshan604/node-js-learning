@@ -3,7 +3,8 @@ const secret="not really"
 
 module.exports={
      firstName,
-     secret}
+     secret
+}
 
 
 
