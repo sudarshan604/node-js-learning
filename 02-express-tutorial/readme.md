@@ -7,3 +7,8 @@
 
 `npm install express `
 
+
+
+### express middleware are function that executed during the response to the server
+
+# important when setting middleware tou always pass in to the next middleware
