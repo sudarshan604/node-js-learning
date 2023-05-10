@@ -1,33 +1,57 @@
 const express=require('express')
-const logger=require('./logger')
-const products=require('./data')
-//req=>middleware=>res
-
 const app=express()
+let {people} =require('./data')
 
-// const logger=(req,res,next)=>{
-//   const method=req.method
-//   const url=req.url
-//   const time=new Date().getFullYear()
-//   console.log(method,url,time)
-//   next()
-//   //  res.send('testing')
-// }
+// static assets
 
-app.use(logger)//it apply in all route remember order matter
-app.use('/api',logger)//it apply on only route after /api
+app.use(express.static('./methods-public'))
 
+//parse form data
+app.use(express.urlencoded({extended:false}))
+
+//parse json
+app.use(express.json())
 
 
-app.get('/',logger,(req,res)=>{
+
+
+app.get('/api/people',(req,res)=>{
+      res.status(200).json({success:true,data:people})
+})
+
+
+app.post('/api/people',(req,res)=>{
+   const {name}=req.body
+    if(!name){
+         return res.status(400).json({success:false,msg:'please provide name value'})
+    }
+    res.status(201).json({success:false,person:name})
+    
+})
+
+app.post('/api/postman/people',(req,res)=>{
+ const {name}=req.body
+  if(!name){
+     return res.status(400).json({success:false,msg:"please provide a appropriated daa"})
+
+  }
+  res.status(201).json({success:true,data:[...people,name]})
+  })
+
+
+app.post('/login',(req,res)=>{
+ const {name}=req.body
+  if(name){
+     return res.status(200).send(`welcome ${name}`)
+  }
+
+   res.status(401).send('please provide credential')
+})
+
+
  
 
-  res.send('home')
-})
 
-app.get('/about',logger,(req,res)=>{
-   
-})
 
 
 app.listen(5000,()=>{

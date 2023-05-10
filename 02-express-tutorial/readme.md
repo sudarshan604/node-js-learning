@@ -11,4 +11,4 @@
 
 ### express middleware are function that executed during the response to the server
 
-# important when setting middleware tou always pass in to the next middleware
+# important when setting middleware you always pass in to the next middleware
