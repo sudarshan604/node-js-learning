@@ -1,3 +1,4 @@
+require('./db/connect')
 const express=require('express')
 const app=express()
 
@@ -8,9 +9,13 @@ app.use(express.json()) //if we dont we use it then we dont have data in req.bod
 
 
 app.get('/hello',(req,res)=>{
-        res.send('task manager app')
-})
+  res.send('task manager app')
+}) 
+
 app.use('/api/v1/tasks',tasks)
+
+
+
 
 
 //app.get('/api/v1/tasks') -get all the tasks
