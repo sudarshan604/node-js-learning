@@ -2,15 +2,20 @@ const express=require('express')
 const app=express()
 const tasks=require('./routes/task')
 const connectDB=require('./db/connect')
-require('dotenv').config()  //npm install dotenv
+require('dotenv').config()  //npm install dotenv for env value
+const notFound=require('./middleware/notfound')
 
 
 
 
-//sudarshan@1234  sudarshan
+
+
 
 //middleware
+app.use(express.static('./public')) //to load html css or static file
 app.use(express.json()) //if we dont we use it then we dont have data in req.body
+
+// app.use(notFound)
 
 
 app.get('/hello',(req,res)=>{

@@ -5,7 +5,6 @@ const {getAllTasks,
     updateTask,
     getTask,
     deleteTask
-
 }=require('../controller/tasks')
 
 
