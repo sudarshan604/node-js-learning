@@ -4,6 +4,8 @@ const tasks=require('./routes/task')
 const connectDB=require('./db/connect')
 require('dotenv').config()  //npm install dotenv for env value
 const notFound=require('./middleware/notfound')
+const errorHandlerMiddleWare=require('./middleware/error-handler')
+
 
 
 
@@ -14,7 +16,7 @@ const notFound=require('./middleware/notfound')
 //middleware
 app.use(express.static('./public')) //to load html css or static file
 app.use(express.json()) //if we dont we use it then we dont have data in req.body
-
+app.use(errorHandlerMiddleWare)
 // app.use(notFound)
 
 
@@ -40,7 +42,7 @@ app.use('/api/v1/tasks',tasks)
 
 
 
-const port=3000
+const port= process.env.PORT || 3000
 
 const start=async()=>{
    try{

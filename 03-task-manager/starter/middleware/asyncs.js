@@ -5,7 +5,7 @@ const asyncWrapper=(fn)=>{
          await fn(req,res,next)
      }
      catch(error){
-         next(error)
+         next(error) //middleware for error if not made then we use build in if not then we use what we made 
       }
   
     }
