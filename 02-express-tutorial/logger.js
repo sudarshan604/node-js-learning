@@ -1,5 +1,6 @@
 //so all the time when calling api logger function is call
 
+
 const logger=(req,res,next)=>{
     const method=req.method
     const url=req.url
