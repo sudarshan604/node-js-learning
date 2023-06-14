@@ -2,6 +2,8 @@
 
 #### Starter
 
+
+`allkeygenerate`->for hwt secret
 The starter is a copy of jobs-api final project, just with additional data.
 
 #### Setup
