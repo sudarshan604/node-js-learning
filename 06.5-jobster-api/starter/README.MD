@@ -37,6 +37,8 @@ npm start
 #### Spring Cleaning
 
 ##### Remove Swagger
+#### for swagger UI yamljs and swagger-ui-express
+
 
 - delete swagger.yaml file
 - remove these lines of code

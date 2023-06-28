@@ -39,7 +39,9 @@ const uploadProductImage=async(req,res)=>{
       folder:'file-upload'  
     })
 
+   //to remove file from temp folder
     fs.unlinkSync(req.files.image.tempFilePath)
+
 return res.status(StatusCodes.OK).json({image:{src:result.secure_url}})
 
 }
