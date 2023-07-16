@@ -13,7 +13,6 @@ const register=async(req,res)=>{
 
   const token=user.createJWT()
 
-
   res.status(StatusCodes.CREATED).send({ user:{name:user.name}, token}) 
 
 }
@@ -31,14 +30,14 @@ if(!user){
    throw new UnauthenticatedError('invalid credentials')
 }
 
-const isPasswordCorrect=await user.comparedPassword(password)
+const isPasswordCorrect =await user.comparedPassword(password)
 
 if(!isPasswordCorrect){
   throw new UnauthenticatedError('invalid credentials')
 }
 
+ const token=user.createJWT()
 
-const token=user.createJWT()
  res.status(StatusCodes.OK).json({user:{name:user.name},token})
 
 }
