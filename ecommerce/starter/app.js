@@ -19,12 +19,13 @@ const errorHandlerMiddleware = require('./middleware/error-handler')
 
 //routes
 const authRouter=require('./routes/authRoutes')
+const userRouter=require('./routes/userRoutes')
 
 
 
 app.use(morgan('tiny'))
 app.use(express.json()) //we want to access json data like req.body
-app.use(cookieParser())
+app.use(cookieParser(process.env.JWT_SECRET))
 
 
 
@@ -34,14 +35,14 @@ app.get('/',(req,res)=>{
 
 
 app.get('/api/v1',(req,res)=>{
-  console.log(req.cookies)
+  console.log(req.signedCookies)
   res.send('e-commerce api')
 })
 
 
 
 app.use('/api/v1/auth',authRouter)
-
+app.use('/api/v1/users',userRouter)
 
 
 //middleware
