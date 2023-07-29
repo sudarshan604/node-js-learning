@@ -8,8 +8,8 @@ const {authenticateUser,authorizePermission}=require('../middleware/authenticati
 const router=express.Router()
 
 
-router.route('/').get(authenticateUser,authorizePermission,getAllUsers)
-router.route('/showMe').get(showCurrentUser)
+router.route('/').get(authenticateUser,authorizePermission('admin','user'),getAllUsers)
+router.route('/showMe').get(authenticateUser,showCurrentUser)
 router.route('/updateUser').patch(updateUser)
 router.route('/updateUserpassword').patch(updateUserPassword)
 
