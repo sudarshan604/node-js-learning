@@ -20,6 +20,7 @@ const role=isFirstAccount?'admin':'user'
 
 
   const user=  await User.create({name,email,password,role})
+  
   const tokenUser={name:user.name,userId:user._id,role:user.role}
 
 //   const token=jwt.sign(tokenUser,'jwtSecret',{expiresIn:'1d'})
@@ -51,7 +52,7 @@ const login=async(req,res)=>{
  if(!user){
     throw  new CustomError.UnauthenticatedError('Invalid Credentials')
  }
-const isPasswordCorrect=await user.comparedPassword(password)
+const isPasswordCorrect =await user.comparedPassword(password)
 
 if(!isPasswordCorrect){
     throw  new CustomError.UnauthenticatedError('Invalid Credentials')
