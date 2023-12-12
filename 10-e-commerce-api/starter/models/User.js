@@ -7,7 +7,7 @@ const mongoose=require('mongoose')
 
 
 const UserSchema= new mongoose.Schema({
-  
+
    name:{
      type:String,
      required:[true,'please provide name'],
@@ -47,7 +47,8 @@ password:{
 UserSchema.methods.comparePassword= async function(candidatePassword){
   
   const isMatch= await bcrypt.compare(candidatePassword,this.password)
-
+  
+return isMatch
 
 }
 
