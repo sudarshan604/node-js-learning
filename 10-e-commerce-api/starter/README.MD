@@ -32,8 +32,8 @@
 #### User Model
 
 - [x] create models folder and User.js file
-- [] create schema with name,email, password (all type:String)
-- [] export mongoose model
+- [x] create schema with name,email, password (all type:String)
+- [x] export mongoose model
 
 #### Validator Package
 
@@ -41,11 +41,11 @@
 
 #### Auth Routes Structure
 
-- [] create controllers folder
-- [] add authController file
-- [] export (register,login,logout) functions
-- [] res.send('some string value')
-- [] create routes folder
+- [x] create controllers folder
+- [x] add authController file
+- [x] export (register,login,logout) functions
+- [x] res.send('some string value')
+- [x] create routes folder
 - [] setup authRoutes file
 - [] import all controllers
 - [] setup three routes
