@@ -30,8 +30,6 @@ const role=isFirstAccoutn?'admin':"user"
 
 
   attachCookiesToResponse({res,tokenUser})
-
-
   res.status(StatusCodes.CREATED).json({user:tokenUser})
        
 }
@@ -62,7 +60,7 @@ const login = async(req,res)=>{
    const tokenUser=createTokenUser(user)
  
    attachCookiesToResponse({res,tokenUser})
-   res.status(StatusCodes.CREATED).json({user:tokenUser})
+   res.status(StatusCodes.OK).json({user:tokenUser})
 
 
 }
