@@ -3,8 +3,8 @@ require('express-async-errors')
 const express = require('express');
 const app = express();
 
-const fileUpload=require('express-fileupload') 
-const  cloudinary=require('cloudinary').v2
+const fileUpload=require('express-fileupload')  //express file upload for uploading image
+const  cloudinary=require('cloudinary').v2 //package to store image on cloudinary
 
 cloudinary.config({
    cloud_name:process.env.CLOUD_NAME,
@@ -25,9 +25,11 @@ const productRouter=require('./routes/productRoutes')
 const notFoundMiddleware = require('./middleware/not-found');
 const  errorHandlerMiddleware = require('./middleware/error-handler');
 
-app.use(express.static('./public'))
+app.use(express.static('./public')) //make it publically available
 app.use(express.json())
-app.use(fileUpload({useTempFiles:true}))
+app.use(fileUpload({
+  useTempFiles:true
+}))
 
 
 app.get('/', (req, res) => {

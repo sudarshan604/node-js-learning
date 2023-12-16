@@ -9,7 +9,7 @@ const app=express()
 //rest of the packages
 const morgan=require('morgan')
 const cookieParser=require('cookie-parser')
-
+const fileUpload=require('express-fileupload')
 
 
 //database
@@ -33,6 +33,8 @@ app.use(express.json()) //middlware -> to access json data in body
 app.use(cookieParser(process.env.JWT_SECRET)) //to access cookie i
 
 
+app.use(express.static('./public')) //showing folder public like on website
+app.use(fileUpload())
 
 
 app.get('/',(req,res)=>{
