@@ -27,7 +27,6 @@ const path=require('path')
 
    const {id:productsId}=req.params
 
-   console.log(productsId);
 
    const product= await Product.findOne({_id:productsId})
 
