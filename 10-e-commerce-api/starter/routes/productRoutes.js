@@ -7,6 +7,7 @@ const {
     uploadImage
 }=require('../controllers/productController')
 const {authenticateUser,authorizePermissions}=require('../middleware/authentication')
+const {getSingleProductReviews}=require('../controllers/reviewController')
 
 const express= require('express')
 
@@ -24,6 +25,9 @@ router
    .delete([authenticateUser,authorizePermissions('admin')],deleteProduct)
 
 
+
+
+router.route('/:id/reviews').get(getSingleProductReviews)
 
 
 module.exports=router

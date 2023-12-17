@@ -28,7 +28,7 @@ const path=require('path')
    const {id:productsId}=req.params
 
 
-   const product= await Product.findOne({_id:productsId})
+   const product= await Product.findOne({_id:productsId}).populate('reviews')
 
  if(!product){
     throw new CustomError.NotFoundError(`NO product with id:${productsId}`)
@@ -55,7 +55,6 @@ const path=require('path')
      res.status(StatusCodes.OK).json({product})
     
 }
-
 
  const deleteProduct=async(req,res)=>{
 

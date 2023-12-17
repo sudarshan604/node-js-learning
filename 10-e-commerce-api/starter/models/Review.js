@@ -35,5 +35,48 @@ const ReviewSchema= new moongoose.Schema({
 
 ReviewSchema.index({product:1,user:1},{unique:true})
 
+ReviewSchema.statics.calculateAverageRating=async function(productId){
+
+ const result= await this.aggregate([
+  {
+    $match:{product:productId}
+  },
+  {
+    $group:{
+       _id:null,
+       averageRating:{$avg:'$rating'},
+       numOfReviews:{$sum:1}
+    }
+  }
+
+ ])
+
+try{
+  await this.model('Product').findOneAndUpdate({_id:productId},{
+    averageRating:Math.ceil(result[0]?.averageRating || 0),
+    numOfReviews:result[0]?.numOfReviews || 0
+  })
+
+}
+catch(errors){
+ console.log(errors);
+}
+
+
+}
+
+
+ReviewSchema.post('save',async function(){
+ 
+  await this.constructor.calculateAverageRating(this.product)
+
+  console.log('post save hook called'); 
+})
+
+ReviewSchema.post('remove',async function(){
+
+  await this.constructor.calculateAverageRating(this.product)
+
+})
 
 module.exports=moongoose.model('Review',ReviewSchema)

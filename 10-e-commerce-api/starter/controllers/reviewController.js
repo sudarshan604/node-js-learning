@@ -42,7 +42,13 @@ res.status(StatusCodes.CREATED).json({review})
 
 const getAllReviews=async(req,res)=>{
 
-  const review= await Review.find({})
+  const review= await Review.find({}).populate({
+    path:'product',
+    select:'name category company'
+  }).populate({
+    path:'user',
+    select:'name'
+  })
 
     res.status(StatusCodes.OK).json({review,count:review.length})
 }
@@ -82,6 +88,7 @@ const updateReview=async(req,res)=>{
      review.rating=rating
      review.title=title
      review.comment=comment       
+     
      await review.save()
 
      res.status(StatusCodes.OK).json(review)
@@ -105,9 +112,23 @@ const deleteReview=async(req,res)=>{
 
 }
 
+const getSingleProductReviews=async(req,res)=>{
+
+     const {id:productId}=req.params
+
+     const reviews=await Review.find({product:productId})
+ 
+     res.status(StatusCodes.OK).json({reviews,count:reviews.length})
+
+
+    
+}
+
+
 module.exports={
     createReview,getAllReviews,
     getSingleReview,
     updateReview,
-    deleteReview
+    deleteReview,
+    getSingleProductReviews
 }
