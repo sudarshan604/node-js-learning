@@ -32,7 +32,7 @@ const OrderSchema= new moongose.Schema({
     type:Number,
     require:true
   },
-  cartItems:[singleCartItemsSchema],
+  orderItems:[singleCartItemsSchema],
   status:{
     type:String,
     enum:['pending','failed','paid','delivered','canceled'],
