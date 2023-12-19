@@ -11,6 +11,14 @@ const morgan=require('morgan')
 const cookieParser=require('cookie-parser')
 const fileUpload=require('express-fileupload')
 
+const rateLimiter= require('express-rate-limit')
+const helmrt= require('helmet')
+const cors=require('cors')
+const mongoSanitize=require('express-mongo-sanitize')
+
+
+
+
 
 //database
 const connectDB=require('./db/connect')
@@ -27,6 +35,21 @@ const orderRouter=require('./routes/orderRoutes')
 //middleware
 const notFoundMiddleWare=require('./middleware/not-found')
 const errorHandlerMiddleWare=require('./middleware/error-handler')
+
+
+app.set('trust proxy',1)
+app.use(
+    rateLimiter({
+         windowMs:15 * 60 *1000,
+         max:60
+    })
+)
+
+app.use(helmrt())
+app.use(cors())
+app.use(xss())
+app.use(mongoSanitize())
+
 
 
 app.use(morgan('tiny'))
